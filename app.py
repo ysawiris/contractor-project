@@ -16,4 +16,4 @@ inventory = db.inventory
 @app.route('/')
 def inventory_index():
     """Show all playlists."""
-    return render_template('inventory_index.html', inventory=inventory.find())
+    return render_template('base.html', inventory=inventory.find())

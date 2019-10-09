@@ -1,19 +1,18 @@
-  
+
 {% extends 'base.html' %}
-
 {% block content %}
-
-<div class="container" style="background-color:maroon">
-    <div class="row text-center" style="padding-top: 20px">
-        {% for inventory in inventory_list %}
+{% for inventory in inventory_list %}
+<div class="container">
+    <div class="row text-center" style="background-color:lightgrey">
             <div class="col-md-12 text center">
                 </div class="panel-body">
                     <img src="{{ inventory.pic_path }}" style="width: 15%">
-                    <h3>{{inventory.product_name}}</h3>
+                    <h3 style="padding-right: 10px">{{inventory.product_team_brand}}</h3>
+                    <h4 style="padding-right: 10px">{{inventory.product_name}}</h4>
+                    <h5 style="padding-right: 10px">${{inventory.product_price}}</h5>
                 </div>
             </div>
-        {% endfor %}
     </div>
 </div>
-
+{% endfor %}
 {% endblock %}

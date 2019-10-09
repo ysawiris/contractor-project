@@ -4,9 +4,9 @@
 <div class="container">
     <div class="row text-center" style="background-color:lightgrey">
         <div class="col-md-12 text center">
-            </div class="panel-body">
-                <img src="{{ inventory.pic_path }}" style="width: 15%">
                 <h3 style="padding-right: 10px"><a href="/inventory/{{ inventory._id }}">{{inventory.product_team_brand}}</a></h3>
+            </div class="panel-head">
+                <img src="{{ inventory.pic_path }}" style="width: 25%; padding-bottom: 15px; padding-left: 15px; padding-right: 10px">
                 <h4 style="padding-right: 10px">{{inventory.product_name}}</h4>
                 <h5 style="padding-right: 10px">${{inventory.product_price}}</h5>
             </div>

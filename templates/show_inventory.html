@@ -2,11 +2,11 @@
 {% extends 'base.html' %}
 {% block content %}
 {% for inventory in inventory_list %}
-<div class="container">
+<div class="container" style="padding-bottom: 10px; padding-left: 10px; padding-right: 10px;">
     <div class="row text-center" style="background-color:lightgrey">
-            <div class="col-md-12 text center">
+            <div class="col-md-12 text center" style="padding-top: 10px">
                 </div class="panel-body">
-                    <img src="{{ inventory.pic_path }}" style="width: 15%">
+                    <img src="{{ inventory.pic_path }}" style="width: 15%; padding-bottom: 10px; padding-left: 10px; padding-right: 10px;">
                     <h3 style="padding-right: 10px"><a href="/inventory/{{ inventory._id }}">{{inventory.product_team_brand}}</a></h3>
                     <h4 style="padding-right: 10px">{{inventory.product_name}}</h4>
                     <h5 style="padding-right: 10px">${{inventory.product_price}}</h5>

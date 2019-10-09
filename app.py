@@ -26,5 +26,10 @@ def show_inventory():
     items = inventory.find({'product_name': 'Official NBA Jersey'})
     return render_template("show_inventory.html", inventory=items)
 
+@app.route('/inventory/<inventory_id>')
+def show_item(inventory_id):
+    item = inventory.find_one({'_id': ObjectId(inventory_id)})
+    return render_template("item_show.html", inventory = item)
+
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=os.environ.get('PORT', 5000))

@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for
-import os
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 from inventory import Store
 from datetime import datetime
+import os
 
 app = Flask(__name__)
 

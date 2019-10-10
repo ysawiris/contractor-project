@@ -32,8 +32,8 @@ def show_item(inventory_id):
     item_comments = comments.find({'inventory_id': ObjectId(inventory_id)})
     return render_template("item_show.html", inventory = item, comments = item_comments)
 
-@app.route('/inventory/comments', methods=['POST'])
-def comments_new():
+@app.route('/inventory/<inventory_id>/comments', methods=['POST'])
+def comments_new(inventory_id):
     """Submit a new comment."""
     comment = {
         'title': request.form.get('title'),
@@ -41,11 +41,30 @@ def comments_new():
         'inventory_id': ObjectId(request.form.get('inventory_id'))
     }
     print(comment)
-    comment_id = comments.insert_one(comment).inserted_id
+    comments.insert_one(comment)
     return redirect(url_for('show_item', inventory_id=request.form.get('inventory_id')))
 
-@app.route('/inventory/comments/<comment_id>', methods=['POST'])
-def comments_delete(comment_id):
+@app.route('/inventory/<inventory_id>/comments/<comment_id>/edit')
+def comment_edit(inventory_id, comment_id):
+    """Show the edit form for a playlist."""
+    comment = comments.find_one({'_id': ObjectId(comment_id)})
+    return render_template('comment_edit.html', comment=comment, inventory_id=inventory_id)
+
+@app.route('/inventory/<inventory_id>/comments/<comment_id>', methods=['POST'])
+def comment_update(inventory_id, comment_id):
+    """Submit an edited comment."""
+    updated_comment = {
+        'title': request.form.get('title'),
+        'content': request.form.get('content'),
+        'inventory_id': ObjectId(request.form.get('inventory_id'))
+    }
+    comments.update_one(
+        {'_id': ObjectId(comment_id)},
+        {'$set': updated_comment})
+    return redirect(url_for('show_item', comment_id = comment_id, inventory_id = inventory_id))
+
+@app.route('/inventory/<inventory_id>/comments/<comment_id>/delete', methods=['POST'])
+def comments_delete(inventory_id, comment_id):
     """Action to delete a comment."""
     comment = comments.find_one({'_id': ObjectId(comment_id)})
     comments.delete_one({'_id': ObjectId(comment_id)})

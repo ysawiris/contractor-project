@@ -1,6 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+
 <!-- templates/partials/comment_form.html -->
-<form action='/inventory/{{ inventory._id }}/comments' method='POST' style="padding-left: 50px; padding-right: 50px">
-    <input type='hidden' value='{{ inventory._id }}' name='inventory_id'/>
+<form action='/inventory/{{ inventory_id }}/comments/{{ comment._id }}' method='POST' style="padding-left: 50px; padding-right: 50px">
+    <input type='hidden' value='{{ comment._id }}' name='comment_id'/>
+    <input type='hidden' value='{{ inventory_id }}' name='inventory_id'/>
     <fieldset>
         <legend>Add a Comment</legend>
         <!-- TITLE -->
@@ -25,3 +29,6 @@
         <button class='btn btn-primary' type='submit'>Save Comment</button>
     </div>
 </form>
+
+
+{% endblock content%}

@@ -37,6 +37,7 @@ def comments_new(inventory_id):
     """Submit a new comment."""
     comment = {
         'title': request.form.get('title'),
+        'name': request.form.get('name'),
         'content': request.form.get('content'),
         'inventory_id': ObjectId(request.form.get('inventory_id'))
     }

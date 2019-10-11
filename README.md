@@ -5,7 +5,7 @@ My store is called FanGear! Where you can get your offical sports wear to rep yo
 
 To check out my site, please go to "https://fangear-ys.herokuapp.com/" 
 
-<please using google chrome when clicking on the link>
+please using google chrome when clicking on the link
 
 You can also run on your device! 
 

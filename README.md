@@ -3,7 +3,8 @@
 Welcome to my Contractor Project! 
 My store is called FanGear! Where you can get your offical sports wear to rep your favorite teams. 
 
-To check out my site, please go to "https://fangear-ys.herokuapp.com/"
+To check out my site, please go to "https://fangear-ys.herokuapp.com/" 
+<please using google chrome when clicking on the link>
 
 You can also run on your device! 
 

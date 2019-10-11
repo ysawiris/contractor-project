@@ -21,11 +21,6 @@ def inventory_index():
     """Show all playlists."""
     return render_template('show_inventory.html', inventory_list=inventory.find())
 
-@app.route('/inventory/')
-def show_inventory():
-    items = inventory.find({'product_name': 'Official NBA Jersey'})
-    return render_template("show_inventory.html", inventory=items)
-
 @app.route('/inventory/<inventory_id>')
 def show_item(inventory_id):
     item = inventory.find_one({'_id': ObjectId(inventory_id)})
@@ -56,6 +51,7 @@ def comment_update(inventory_id, comment_id):
     """Submit an edited comment."""
     updated_comment = {
         'title': request.form.get('title'),
+        'name': request.form.get('name'), 
         'content': request.form.get('content'),
         'inventory_id': ObjectId(request.form.get('inventory_id'))
     }
